@@ -1,0 +1,89 @@
+import numpy
+speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+x = numpy.mean(speed)
+
+print(x)
+
+'''Mean - The average value
+Median - The mid point value
+Mode - The most common value'''
+
+'''median'''
+speed.sort()
+print(speed)
+x = numpy.median(speed)
+print(x)
+#mode
+from scipy import stats
+
+speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+
+x = stats.mode(speed)
+
+print(x)
+#variance
+speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+x = numpy.var(speed)
+
+print(x)
+
+# standard deviation
+
+speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+x = numpy.std(speed)
+
+print(x)
+
+
+numbers_even = [4,10,29,33,42,67] # 6 elements
+numbers_odd = [4,10,29,33,42,67,99] # 7 elements
+def find_median(list_of_numbers):
+    list_of_numbers.sort()
+    length = len(list_of_numbers)
+    length_is_odd = True if length % 2 == 0 else False
+    if length_is_odd:
+        index = length//2
+        median = list_of_numbers[index]
+    else:
+        index_1 = length//2
+        index_2 = index_1 + 1
+        median = (list_of_numbers[index_1] + list_of_numbers[index_2]) / 2
+    return median
+ 
+find_median(numbers_odd)
+find_median(numbers_even)
+
+# continued 
+# middle_numbers = []
+# middle_numbers.append[list_of_numbers[index_1]]
+# middle_numbers.append[list_of_numbers[index_2]]
+# median = find_mean(middle_numbers)
+
+
+n = [4,4,4,4,6,6,6,6,6,6,8,8,8,8,9,10,2,2,2,2,2,2,2,2,2,2]
+def calculate_mode(list_of_numbers):
+    counter = {}
+    for i in list_of_numbers:
+        if i in counter:
+            counter[i]+=1
+        else:
+            counter[i] = 1
+    key_max = sorted(counter, key=counter.get, reverse=True)[:1][0]
+    frequency = counter[key_max]
+    return key_max, frequency
+ 
+calculate_mode(n)
+
+
+
+numbers = [4,10,29,33,42,-67]
+def find_range(list_of_numbers):
+    n_min = min(list_of_numbers)
+    n_max = max(list_of_numbers)
+    n_range = n_max - n_min
+    return n_min, n_max, n_range
+find_range(numbers)
+(-67, 42, 109)
+
+
+# A mode is file containting a single variables 
